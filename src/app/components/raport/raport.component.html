@@ -1,0 +1,25 @@
+<div class="card" style="width: 40rem; margin-bottom: 16px">
+  <div class="card-body">
+    <img [src]="website.lead_image_url" [alt]="website.lead_image_url" *ngIf="website.lead_image_url"
+         class="card-img-top" style="margin-bottom: 16px; max-height: 300px">
+    <h5 class="card-title">{{website.title}}</h5>
+    <p class="card-text" *ngIf="website.author">Autor: {{website.author}}</p>
+    <p class="card-text" *ngIf="website.date_published">Data publikacji: {{website.date_published | date: 'short'}}</p>
+    <p class="card-text" *ngIf="website.excerpt">Fragment: {{website.excerpt}}</p>
+    <p class="card-text" *ngIf="website.dek">Dek: {{website.dek}}</p>
+    <p class="card-text" *ngIf="website.url">Adres URL: {{website.url}}</p>
+    <p class="card-text" *ngIf="website.domain">Domena: {{website.domain}}</p>
+    <p class="card-text" *ngIf="website.word_count">Ilość słów: {{website.word_count}}</p>
+    <p class="card-text" *ngIf="website.direction">Kierunek tekstu: {{website.direction}}</p>
+    <p class="card-text" *ngIf="website.rendered_pages">Ilość wyrenderowanych stron: {{website.rendered_pages}}</p>
+    <p class="card-text" *ngIf="website.total_pages">Ilość stron: {{website.total_pages}}</p>
+    <h5>Statystyka znaczników</h5>
+    <li *ngFor="let unit of website.statistics">
+      {{unit[0]}} - {{unit[1]}} - {{unit[1] / totalNumberOfTagsOccurrances * 100 | number: '.1-2'}}%
+    </li>
+    <br>
+    <button class="btn btn-primary" (click)="removeWebsiteFromList()">Usuń raport</button>
+  </div>
+</div>
+
+

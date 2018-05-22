@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.progress-bar.indeterminate {
+  position: relative;
+  animation: progress-indeterminate 3s linear infinite;
+}
+
+@keyframes progress-indeterminate {
+  from {
+    left: -25%;
+    width: 25%;
+  }
+  to {
+    left: 100%;
+    width: 25%;
+  }
+}
